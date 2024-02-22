@@ -32,7 +32,7 @@ public class AndroidAdapter extends ArrayAdapter<Android> {
 
         ((TextView) convertView.findViewById(R.id.model)).setText(android.model);
         ((TextView) convertView.findViewById(R.id.os)).setText(android.os);
-        ((TextView) convertView.findViewById(R.id.releaseyear)).setText(String.valueOf(android.releaseyear));
+        ((TextView) convertView.findViewById(R.id.releaseyear)).setText(String.valueOf(android.released));
 
 
         return convertView;

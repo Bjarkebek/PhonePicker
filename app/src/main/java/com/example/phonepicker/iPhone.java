@@ -4,5 +4,5 @@ public class iPhone {
     public int id;
     public String model;
     public String ios;
-    public int releaseyear;
+    public int released;
 }

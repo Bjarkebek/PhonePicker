@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
@@ -25,7 +27,7 @@ public class IphoneActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
     iPhone iphone;
-    List<iPhone> iphonesList;
+    private List<iPhone> iphonesList;
 
 
     @Override
@@ -41,35 +43,23 @@ public class IphoneActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        getData();
-        Toast.makeText(this, "Size: " + iphonesList.size(), Toast.LENGTH_LONG).show();
-        showItems();
+        getAllPhones();
+
     }
 
-    void getData() {
-        String url = "http://localhost:8080/api/iPhone";
+    private void getAllPhones() {
+        String url = "http://10.131.210.133:8080/api/iphone";
         requestQueue = Volley.newRequestQueue(this);
 
         StringRequest request = new StringRequest(Request.Method.GET, url, response -> {
             iphonesList = new Gson().fromJson(response, new TypeToken<List<iPhone>>() {
             }.getType());
-        }, error -> Log.d("Volley", error.toString()));
+            showItems();
+        },error -> Log.d("Volley", error.toString()));
+
         requestQueue.add(request);
     }
 
-    void MockData() {
-        iPhone p1 = new iPhone();
-        p1.model = "iPhone";
-        p1.ios = "first";
-        p1.releaseyear = 2099;
-        iphonesList.add(p1);
-
-        iPhone p2 = new iPhone();
-        p2.model = "better iPhone";
-        p2.ios = "better";
-        p2.releaseyear = 2199;
-        iphonesList.add(p2);
-    }
 
     void showItems() {
         ArrayAdapter<iPhone> adapter = new IphoneAdapter(this, iphonesList);

@@ -30,7 +30,7 @@ public class IphoneAdapter extends ArrayAdapter<iPhone> {
 
         ((TextView) convertView.findViewById(R.id.model)).setText(iPhone.model);
         ((TextView) convertView.findViewById(R.id.os)).setText(iPhone.ios);
-        ((TextView) convertView.findViewById(R.id.releaseyear)).setText(String.valueOf(iPhone.releaseyear));
+        ((TextView) convertView.findViewById(R.id.releaseyear)).setText(String.valueOf(iPhone.released));
 
 
         return convertView;

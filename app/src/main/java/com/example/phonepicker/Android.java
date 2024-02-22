@@ -4,5 +4,5 @@ public class Android {
 
     String model;
     String os;
-    int releaseyear;
+    int released;
 }
