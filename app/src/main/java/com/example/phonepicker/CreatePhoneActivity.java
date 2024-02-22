@@ -70,15 +70,14 @@ public class CreatePhoneActivity extends AppCompatActivity {
 
     public void addData(Android data) throws JSONException {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String URL = "http://10.131.210.133:8080/api/android";
+        String URL = "http://192.168.1.8:8080/api/android";
 
-        JSONObject jsonBody = new JSONObject();
-        jsonBody.put("model",data.model);
-        jsonBody.put("os",data.os);
-        jsonBody.put("released",data.released);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("model",data.model);
+        jsonObject.put("os",data.os);
+        jsonObject.put("released",data.released);
 
-        final String requestBody = jsonBody.toString();
-
+        final String requestBody = jsonObject.toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 response -> {

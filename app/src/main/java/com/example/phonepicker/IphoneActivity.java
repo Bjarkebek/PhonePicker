@@ -48,7 +48,7 @@ public class IphoneActivity extends AppCompatActivity {
     }
 
     private void getAllPhones() {
-        String url = "http://10.131.210.133:8080/api/iphone";
+        String url = "http://192.168.1.8:8080/api/iphone";
         requestQueue = Volley.newRequestQueue(this);
 
         StringRequest request = new StringRequest(Request.Method.GET, url, response -> {

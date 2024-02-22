@@ -1,7 +1,10 @@
 package com.example.phonepicker;
 
-public class Android {
+import java.io.Serializable;
 
+public class Android implements Serializable {
+
+    int id;
     String model;
     String os;
     int released;

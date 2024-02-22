@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EditPhoneActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreatePhoneActivity"
             android:exported="false" />
         <activity
