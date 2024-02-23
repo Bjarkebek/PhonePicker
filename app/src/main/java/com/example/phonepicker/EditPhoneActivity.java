@@ -89,9 +89,10 @@ public class EditPhoneActivity extends AppCompatActivity implements Serializable
 
     public void putData(Android data) throws JSONException {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String URL = "http://192.168.1.8:8080/api/android/" + phone.id;
+        String URL = "http://192.168.1.8:8080/api/android";
 
         JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", phone.id);
         jsonObject.put("model", data.model);
         jsonObject.put("os", data.os);
         jsonObject.put("released", data.released);

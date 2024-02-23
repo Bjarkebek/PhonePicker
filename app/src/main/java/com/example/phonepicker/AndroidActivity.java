@@ -36,9 +36,9 @@ public class AndroidActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android);
 
-
         androidsList = new ArrayList<>();
         getAllPhones();
+
 
         // til tilbageknappen
         Button btn_back = findViewById(R.id.btn_back_android);
@@ -46,6 +46,8 @@ public class AndroidActivity extends AppCompatActivity implements Serializable {
             Intent intent = new Intent(AndroidActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
+
 
         // til opret knappen
         FloatingActionButton btn_create = findViewById(R.id.btn_create);
@@ -56,6 +58,7 @@ public class AndroidActivity extends AppCompatActivity implements Serializable {
                 startActivity(intent);
             }
         });
+
 
 
         // til når et objekt i listen bliver klikket på
